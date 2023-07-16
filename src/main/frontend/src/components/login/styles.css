@@ -1,0 +1,21 @@
+.login {
+    display: flex;
+    justify-content: center;
+}
+
+.login-title {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    margin: 0.5rem;
+}
+
+form {
+    border: 0;
+}
+
+.message-text {
+    color: red;
+}
