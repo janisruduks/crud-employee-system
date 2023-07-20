@@ -1,6 +1,6 @@
-import './styles.css';
+import '../App.css';
 import React, {useEffect, useState} from 'react';
-import SubmissionMessage from "../submisionmessage/SubmissionMessage.tsx";
+import SubmissionMessage from "./SubmissionMessage.tsx";
 
 const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -1,7 +1,7 @@
-import './styles.css'
+import '../App.css';
 import React, { useState } from "react";
 import axios from "axios";
-import SubmissionMessage from "../submisionmessage/SubmissionMessage.tsx";
+import SubmissionMessage from "./SubmissionMessage.tsx";
 
 
 const DeleteEmployeesById: React.FC<{ url: string }> = ({ url }) => {

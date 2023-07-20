@@ -1,9 +1,10 @@
 import './App.css'
-import AddEmployee from "./components/employeeaddform/addEmployee.tsx";
-import DisplayAllEmployees from "./components/displayallemployees/DisplayAllEmployees.tsx";
-import SearchEmployeesById from "./components/searchemployeebyid/SearchEmployeesById.tsx";
-import DeleteEmployeeById from "./components/deleteemployeebyid/DeleteEmployeeById.tsx";
-import Login from "./components/login/Login.component.tsx";
+import AddEmployee from "./components/AddEmployee.tsx";
+import DisplayAllEmployees from "./components/DisplayAllEmployees.tsx";
+import SearchEmployeesById from "./components/SearchEmployeesById.tsx";
+import DeleteEmployeeById from "./components/DeleteEmployeeById.tsx";
+import Login from "./components/Login.component.tsx";
+import UpdateEmployee from "./components/UpdateEmployee.tsx";
 
 function App() {
     return (
@@ -21,6 +22,10 @@ function App() {
                 <SearchEmployeesById url="/api/v1/no-auth/employees/get/" />
             </div>
             <div className="div4">
+                <UpdateEmployee url="/api/v1/no-auth/employees/update/" />
+            </div>
+            <div className="div5"></div>
+            <div className="div6">
                 <DeleteEmployeeById url="/api/v1/no-auth/employees/delete/" />
             </div>
         </div>
@@ -39,6 +44,10 @@ function App() {
                     <SearchEmployeesById url="/api/v1/auth/emp/get/" />
                 </div>
                 <div className="div4">
+                    <UpdateEmployee url="/api/v1/auth/emp/update/" />
+                </div>
+                <div className="div5"></div>
+                <div className="div6">
                     <DeleteEmployeeById url="/api/v1/auth/emp/delete/" />
                 </div>
             </div>

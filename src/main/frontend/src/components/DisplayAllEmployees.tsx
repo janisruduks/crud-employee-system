@@ -1,4 +1,4 @@
-import './styles.css'
+import '../App.css';
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -29,7 +29,7 @@ const DisplayAllEmployees: React.FC<{ url: string }> = ({ url }) => {
     return (
         <div>
             <h2>Display all employees</h2>
-            <textarea value={employees} readOnly />
+            <textarea className="text-box" value={employees} readOnly />
             <button className="display-button" onClick={getAllEmployees}>
                 Display
             </button>

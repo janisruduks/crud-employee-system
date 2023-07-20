@@ -1,7 +1,7 @@
+import '../App.css';
 import axios from 'axios';
-import './styles.css';
 import React, { useState } from "react";
-import SubmissionMessage from "../submisionmessage/SubmissionMessage.tsx";
+import SubmissionMessage from "./SubmissionMessage.tsx";
 
 const AddEmployee: React.FC<{url:string}> = ({url}) => {
     const [message, setMessage] = useState<string>('');

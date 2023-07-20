@@ -1,4 +1,4 @@
-import './style.css';
+import '../App.css';
 import React, {useEffect, useState} from "react";
 
 const SubmissionMessage: React.FC<{message:string}> = ({message}) => {

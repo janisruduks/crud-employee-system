@@ -36,6 +36,28 @@ public class InMemoryEmployeeService {
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
+    public Employee updateEmployee(Long id, Employee updatedEmployee) {
+        Employee employee = getEmployeeById(id);
+        repository.deleteEmployee(employee);
+        if (employee != null) {
+            if (!updatedEmployee.getEmail().equals("")) {
+                employee.setEmail(updatedEmployee.getEmail());
+            }
+            if (!updatedEmployee.getFirstName().equals("")) {
+                employee.setFirstName(updatedEmployee.getFirstName());
+            }
+            if (!updatedEmployee.getLastName().equals("")) {
+                employee.setLastName(updatedEmployee.getLastName());
+            }
+            if (!updatedEmployee.getPhoneNumber().equals("")) {
+                employee.setPhoneNumber(updatedEmployee.getPhoneNumber());
+            }
+            repository.saveEmployee(employee);
+            return employee;
+        }
+        return null;
+    }
+
     public void deleteEmployeeById(Long id) {
         repository.deleteEmployee(getEmployeeById(id));
     }

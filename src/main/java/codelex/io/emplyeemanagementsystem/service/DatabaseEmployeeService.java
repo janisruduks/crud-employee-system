@@ -32,4 +32,24 @@ public class DatabaseEmployeeService {
     public Employee saveEmployee(Employee employee) {
         return this.repository.save(employee);
     }
+
+    public Employee updateEmployee(Long id, Employee updatedEmployee) {
+        Employee employee = repository.findById(id).orElse(null);
+        if (employee != null) {
+            if (!updatedEmployee.getEmail().equals("")) {
+                employee.setEmail(updatedEmployee.getEmail());
+            }
+            if (!updatedEmployee.getFirstName().equals("")) {
+                employee.setFirstName(updatedEmployee.getFirstName());
+            }
+            if (!updatedEmployee.getLastName().equals("")) {
+                employee.setLastName(updatedEmployee.getLastName());
+            }
+            if (!updatedEmployee.getPhoneNumber().equals("")) {
+                employee.setPhoneNumber(updatedEmployee.getPhoneNumber());
+            }
+            return repository.save(employee);
+        }
+        return null;
+    }
 }
