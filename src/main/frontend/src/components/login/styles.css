@@ -1,6 +1,12 @@
 .login {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+
+.login-form {
+    width: 50%;
+    margin: 0 0 16px 32px;
 }
 
 .login-title {
@@ -8,14 +14,18 @@
     justify-content: center;
 }
 
-.login-form {
-    margin: 0.5rem;
-}
-
-form {
-    border: 0;
-}
-
 .message-text {
     color: red;
+}
+
+@media screen and (max-width: 1200px) {
+    .login-form {
+        margin: 0 0 12px 12px;
+    }
+    .login {
+        display: block;
+        width: 250px;
+        margin: 0 auto;
+    }
+
 }

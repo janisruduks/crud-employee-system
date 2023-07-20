@@ -12,16 +12,16 @@ function App() {
         <h1 className="title" id="memory">In-Memory Employee Management</h1>
         <div className="parent">
             <div className="div1">
-                <AddEmployee url="/api/v1/employees/save" />
+                <AddEmployee url="/api/v1/no-auth/employees/save" />
             </div>
             <div className="div2">
-                <DisplayAllEmployees url="/api/v1/employees/get/all" />
+                <DisplayAllEmployees url="/api/v1/no-auth/employees/get/all" />
             </div>
             <div className="div3">
-                <SearchEmployeesById url="/api/v1/employees/get/" />
+                <SearchEmployeesById url="/api/v1/no-auth/employees/get/" />
             </div>
             <div className="div4">
-                <DeleteEmployeeById url="/api/v1/employees/delete/" />
+                <DeleteEmployeeById url="/api/v1/no-auth/employees/delete/" />
             </div>
         </div>
         <div>
@@ -30,16 +30,16 @@ function App() {
             </h1>
             <div className="parent">
                 <div className="div1">
-                    <AddEmployee url="/api/v1/emp/save" />
+                    <AddEmployee url="/api/v1/auth/emp/save" />
                 </div>
                 <div className="div2">
-                    <DisplayAllEmployees url="/api/v1/emp/get/all" />
+                    <DisplayAllEmployees url="/api/v1/auth/emp/get/all" />
                 </div>
                 <div className="div3">
-                    <SearchEmployeesById url="/api/v1/emp/get/" />
+                    <SearchEmployeesById url="/api/v1/auth/emp/get/" />
                 </div>
                 <div className="div4">
-                    <DeleteEmployeeById url="/api/v1/emp/delete/" />
+                    <DeleteEmployeeById url="/api/v1/auth/emp/delete/" />
                 </div>
             </div>
         </div>

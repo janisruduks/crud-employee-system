@@ -23,12 +23,12 @@ const AddEmployee: React.FC<{url:string}> = ({url}) => {
         const authHeader = username && password ? `Basic ${btoa(`${username}:${password}`)}` : undefined;
 
         try {
-            const response = await axios.put(`http://localhost:8080${url}`, employeeData, {
+            await axios.put(`http://localhost:8080${url}`, employeeData, {
                 headers: {
                     Authorization: authHeader,
                 },
             });
-            setMessage(response.data);
+            setMessage("Employee saved");
             setResetKey(Date.now().toString());
             form.reset();
         } catch (error) {

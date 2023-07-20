@@ -19,7 +19,7 @@ const Login = () => {
     const authenticateUser = async (username: string, password: string) => {
             const encodedCredentials = btoa(`${username}:${password}`);
             const authHeader = `Basic ${encodedCredentials}`;
-            const response = await fetch('http://localhost:8080/api/v1/emp', {
+            const response = await fetch('http://localhost:8080/api/v1/auth/emp', {
                 headers: {
                     Authorization: authHeader,
                 },

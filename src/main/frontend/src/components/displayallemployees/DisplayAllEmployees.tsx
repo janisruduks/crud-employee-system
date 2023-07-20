@@ -29,10 +29,10 @@ const DisplayAllEmployees: React.FC<{ url: string }> = ({ url }) => {
     return (
         <div>
             <h2>Display all employees</h2>
-            <button className="button" onClick={getAllEmployees}>
+            <textarea value={employees} readOnly />
+            <button className="display-button" onClick={getAllEmployees}>
                 Display
             </button>
-            <textarea value={employees} readOnly />
         </div>
     );
 };

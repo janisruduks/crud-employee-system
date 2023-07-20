@@ -1,44 +1,41 @@
 package codelex.io.emplyeemanagementsystem.controller;
 
 import codelex.io.emplyeemanagementsystem.model.Employee;
-import codelex.io.emplyeemanagementsystem.repository.InMemoryEmployeeRepositoryImpl;
+import codelex.io.emplyeemanagementsystem.service.InMemoryEmployeeService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Random;
 
 @RestController
-@RequestMapping("api/v1/employees")
+@RequestMapping("api/v1/no-auth/employees")
 public class InMemoryEmployeesController {
 
-    private final InMemoryEmployeeRepositoryImpl employeeRepository;
+    private final InMemoryEmployeeService service;
 
-    public InMemoryEmployeesController(InMemoryEmployeeRepositoryImpl employeeRepository) {
-        this.employeeRepository = employeeRepository;
+    public InMemoryEmployeesController(InMemoryEmployeeService service) {
+        this.service = service;
     }
 
     @PutMapping("/save")
-    public String saveEmployee(@RequestBody Employee employee) {
-        Random random = new Random();
-        Long id = random.nextLong(1000);
-        employee.setId(id);
-        employeeRepository.saveEmployee(employee);
-        return "Employee saved successfully!";
+    @ResponseStatus(HttpStatus.CREATED)
+    public Employee saveEmployee(@RequestBody Employee employee) {
+        return service.saveEmployee(employee);
     }
 
     @GetMapping("/get/{id}")
     public Employee getEmployeeById(@PathVariable("id") Long id) {
-        return employeeRepository.getEmployeeById(id);
+        return service.getEmployeeById(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteEmployeeById(@PathVariable("id") Long id) {
-        employeeRepository.deleteEmployeeById(id);
+        service.deleteEmployeeById(id);
         return "Employee removed successfully";
     }
 
     @GetMapping("/get/all")
     public List<Employee> getAllEmployees() {
-        return employeeRepository.getEmployees();
+        return service.getAllEmployees();
     }
 }

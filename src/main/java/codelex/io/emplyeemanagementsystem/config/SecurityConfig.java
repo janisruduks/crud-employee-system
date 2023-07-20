@@ -17,7 +17,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.httpBasic(withDefaults())
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/api/v1/employees/**").permitAll()
+                        .requestMatchers("/api/v1/no-auth/employees/**").permitAll()
                         .anyRequest().authenticated()
                 );
         http.cors();

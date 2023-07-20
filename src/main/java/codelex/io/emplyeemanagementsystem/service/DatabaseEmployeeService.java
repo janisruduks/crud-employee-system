@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DatabaseService {
+public class DatabaseEmployeeService {
 
     private final DatabaseEmployeeRepository repository;
 
-    public DatabaseService(DatabaseEmployeeRepository repository) {
+    public DatabaseEmployeeService(DatabaseEmployeeRepository repository) {
         this.repository = repository;
     }
 
@@ -20,7 +20,7 @@ public class DatabaseService {
         return repository.findAll();
     }
 
-    public Employee findById(Long id) {
+    public Employee getEmployeeById(Long id) {
         return repository.findById(id)
                 .orElseThrow(EmployeeNotFoundException::new);
     }
@@ -29,7 +29,7 @@ public class DatabaseService {
         this.repository.deleteById(id);
     }
 
-    public void saveEmployee(Employee employee) {
-        this.repository.save(employee);
+    public Employee saveEmployee(Employee employee) {
+        return this.repository.save(employee);
     }
 }

@@ -1,47 +1,46 @@
 package codelex.io.emplyeemanagementsystem.controller;
 
 import codelex.io.emplyeemanagementsystem.model.Employee;
-import codelex.io.emplyeemanagementsystem.repository.DatabaseEmployeeRepositoryImpl;
-import org.springframework.http.ResponseEntity;
+import codelex.io.emplyeemanagementsystem.service.DatabaseEmployeeService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/emp")
+@RequestMapping("api/v1/auth/emp")
 public class DatabaseEmployeeController {
 
-    private final DatabaseEmployeeRepositoryImpl employeeRepository;
+    private final DatabaseEmployeeService service;
 
-    public DatabaseEmployeeController(DatabaseEmployeeRepositoryImpl employeeRepository) {
-        this.employeeRepository = employeeRepository;
+    public DatabaseEmployeeController(DatabaseEmployeeService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<String> helloWorld() {
-        return ResponseEntity.ok("Hello world!");
-    }
-
-    @GetMapping("/get/all")
-    public ResponseEntity<List<Employee>> getAllEmployees() {
-        return ResponseEntity.ok(this.employeeRepository.findAll());
-    }
-
-    @GetMapping("/get/{id}")
-    public ResponseEntity<Optional<Employee>> getEmployeeById(@PathVariable Long id) {
-        return ResponseEntity.ok(this.employeeRepository.findById(id));
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteEmployeeById(@PathVariable("id") Long id) {
-        this.employeeRepository.deleteById(id);
-        return "Employee deleted successfully!";
+    public String authCheck() {
+        return "Authenticated successfully";
     }
 
     @PutMapping("/save")
-    public String saveEmployee(@RequestBody Employee employee) {
-        ResponseEntity.ok(this.employeeRepository.save(employee));
-        return "Employee saved successfully!";
+    @ResponseStatus(HttpStatus.CREATED)
+    public Employee saveEmployee(@RequestBody Employee employee) {
+        return service.saveEmployee(employee);
+    }
+
+    @GetMapping("/get/{id}")
+    public Employee getEmployeeById(@PathVariable Long id) {
+        return service.getEmployeeById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteEmployeeById(@PathVariable Long id) {
+        service.deleteEmployeeById(id);
+        return "Employee deleted successfully!";
+    }
+
+    @GetMapping("/get/all")
+    public List<Employee> getAllEmployees() {
+        return service.getAllEmployees();
     }
 }

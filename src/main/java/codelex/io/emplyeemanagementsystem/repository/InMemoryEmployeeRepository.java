@@ -3,16 +3,16 @@ package codelex.io.emplyeemanagementsystem.repository;
 import codelex.io.emplyeemanagementsystem.model.Employee;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Repository
-public class InMemoryEmployeeRepositoryImpl {
+public class InMemoryEmployeeRepository {
 
-    private final List<Employee> employees;
+    private final LinkedList<Employee> employees;
 
-    public InMemoryEmployeeRepositoryImpl() {
-        this.employees = new ArrayList<>();
+    public InMemoryEmployeeRepository() {
+        this.employees = new LinkedList<>();
     }
 
     public List<Employee> getEmployees() {
@@ -20,17 +20,14 @@ public class InMemoryEmployeeRepositoryImpl {
     }
 
     public void saveEmployee(Employee employee) {
-        employees.add(employee);
+        synchronized (employees) {
+            employees.add(employee);
+        }
     }
 
-    public Employee getEmployeeById(Long id) {
-        return employees.stream()
-                .filter(employee -> employee.getId().equals(id))
-                .findFirst()
-                .orElseThrow();
-    }
-
-    public void deleteEmployeeById(Long id) {
-        employees.remove(getEmployeeById(id));
+    public void deleteEmployee(Employee employee) {
+        synchronized (employees) {
+            employees.remove(employee);
+        }
     }
 }

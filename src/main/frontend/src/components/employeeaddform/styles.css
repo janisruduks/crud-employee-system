@@ -5,15 +5,6 @@
     margin-bottom: 10px;
 }
 
-form {
-    border: 1px solid rgba(245, 245, 245, 0.32);
-}
-
-.form-holder {
-    margin: auto;
-}
-
-
 button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -25,6 +16,7 @@ button {
     cursor: pointer;
     transition: border-color 0.25s;
 }
+
 button:hover {
     border-color: #646cff;
 }
