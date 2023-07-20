@@ -4,6 +4,12 @@ Project was built using these technologies:
 + **Java Spring Boot**
 + **React/TypeScript/CSS**
 + **PostgreSQL**
+## Showcase
+### Database
+![db](https://github.com/janisruduks/crud-employee-system/assets/37122372/8f523f88-0138-40d8-b892-76e0c892b670)
+### In-memory
+![in-memory](https://github.com/janisruduks/crud-employee-system/assets/37122372/6be94431-3031-48bb-a8ef-6cd22a02a26d)
+
 ## Versions
 + No **auth version** where you can manage employees though **in-memeory variant** (Progress lost upon application restart)
 + **Auth version** where you can manage employees though **Database variant**.
