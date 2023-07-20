@@ -19,4 +19,4 @@ You will need Docker for this installation
 - **Delete Employee:** Remove an employee from the system.
 - **View All Employees:** Display a list of all employees.
 - **View Employee by ID:** Retrieve and display detailed information about a specific employee.
-- **(TODO) Edit Existing Employee:** Update the details of an existing employee.
+- **Edit Existing Employee:** Update the details of an existing employee.
